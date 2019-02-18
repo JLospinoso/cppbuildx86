@@ -28,7 +28,7 @@ RUN rm -rf boost_1_69_0
 RUN git clone https://github.com/openssl/openssl.git
 WORKDIR openssl
 RUN git checkout OpenSSL_1_1_1-stable && \
-    ./config && \
+    setarch i386 ./config -m32 && \
     make && \
     make install
 WORKDIR /
